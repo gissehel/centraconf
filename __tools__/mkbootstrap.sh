@@ -6,6 +6,8 @@ targetdir="$1"
 wd="$(pwd)"
 cd "$targetdir"
 targetdir="$(pwd)"
+which git >/dev/null && git submodule init
+which git >/dev/null && git submodule update -f
 cd "$wd"
 echo "Create a bootstrap from [$targetdir] (enter=>yes)?"
 read yesno
