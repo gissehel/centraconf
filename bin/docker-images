@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-dikki="sudo python ${CENTRACONF}/repos/dikki/dikki.py"
+dikki="sudo python ${CENTRACONF_DIR}/repos/dikki/dikki.py"
 $dikki images -O treetable "$@"

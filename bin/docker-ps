@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-dikki="sudo python ${CENTRACONF}/repos/dikki/dikki.py"
+dikki="sudo python ${CENTRACONF_DIR}/repos/dikki/dikki.py"
 $dikki containers -O table --all -f 'id/imageid/image/created/createdrel" ago"#created/status/ip/ipv6/names' "$@"
