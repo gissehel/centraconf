@@ -8,6 +8,7 @@ installpath="$(pwd)"
 
 [ -z "$asuser" ] && asuser="$(whoami)"
 
+echo "Installing in [${installpath}] as user [${asuser}]"
 cd "$installpath" && for scriptname in __tools__/bootstrap.d/*.sh ; do
     echo "execute [${scriptname}]"
     bash "$scriptname" "$installpath" "$asuser" "$extra"
