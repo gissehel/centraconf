@@ -19,6 +19,7 @@ create_dir ~/etc
 create_dir ~/dev
 create_dir ~/.ssh
 chmod 0770 ~/.ssh
+create_dir  "${targetdir}"/etc/.ssh/config.d
 
 usefile .bash_aliases
 usefile .gitconfig
