@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-sudo python ~/bin/devnet.py
+sudo python $(which devnet.py)
