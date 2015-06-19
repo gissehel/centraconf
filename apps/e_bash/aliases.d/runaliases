@@ -1,0 +1,1 @@
+alias runaliases='. "$E_BASH_DIR"/aliases.sh'

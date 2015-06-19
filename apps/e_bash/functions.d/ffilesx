@@ -1,0 +1,3 @@
+function ffilesx {
+    cat "$1" | perl -ape 's{.*\<[\+\@]?(.*?)\>\s+\#(\d+)\s+\d+x \[(.*?)\] (.*)}{$4    |$3| /x $1 $2} || s{.*}{}' | sort -u > "$1"-filesx
+}

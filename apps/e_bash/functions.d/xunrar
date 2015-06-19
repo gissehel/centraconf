@@ -1,0 +1,7 @@
+function xunrar {
+    for name in *.rar; 
+    do 
+        mkdir "$name".d; 
+        unrar x "$name" ./"$name".d ; 
+    done
+}

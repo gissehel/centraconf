@@ -1,0 +1,3 @@
+export E_BASH_DIR=~/etc/centraconf/apps/e_bash
+if [ -f "$E_BASH_DIR"/envvars.sh ]; then . "$E_BASH_DIR"/envvars.sh; fi
+

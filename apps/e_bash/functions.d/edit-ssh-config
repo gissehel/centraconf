@@ -1,0 +1,13 @@
+function edit-ssh-config {
+    mkdir -p ~/.ssh/config.d/old
+    chmod 0770 ~/.ssh
+    name="$1"
+    [ -z "${name}" ] && echo "You should provide the filename to edit" && return 1
+    editor="$EDITOR"
+    [ -z "${editor}" ] && editor=vi
+    filename=~/.ssh/config.d/${name}.config
+    dateid=$(date +%s)
+    [ -f "${filename}" ] && cp "${filename}" ~/.ssh/config.d/old/"${name}-${dateid}"
+    "${editor}" "${filename}"
+    update-ssh-config
+}

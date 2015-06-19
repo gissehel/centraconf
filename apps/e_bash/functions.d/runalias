@@ -1,0 +1,3 @@
+function runalias {
+    . "$E_BASH_DIR"/aliases.d/"$1"
+}

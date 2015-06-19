@@ -1,0 +1,6 @@
+function cr {
+    WD=$(pwd)
+    cd ~/docrane
+    sudo crane "$@"
+    cd "$WD"
+}

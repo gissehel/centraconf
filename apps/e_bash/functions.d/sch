@@ -1,0 +1,6 @@
+function sch {
+    for file in "$@"; do 
+        schown "$file"
+        schmod "$file"
+    done
+}

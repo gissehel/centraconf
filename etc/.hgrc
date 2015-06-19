@@ -1,0 +1,10 @@
+[ui]
+username = Gissehel <public-hg-repo-common@gissehel.org>
+verbose = True
+merge = internal:merge
+
+[extensions]
+hgext.mq =
+hgext.graphlog =
+color =
+

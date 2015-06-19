@@ -1,0 +1,13 @@
+function addfunction {
+    filename="$E_FUNCTION_DIR"/"$1"
+    if [ -e "$filename" ] ;
+    then
+        mv "$filename" "$E_BASH_DIR"/__old__/function-"$1"-"$(date +%s)"
+    fi
+    echo function "$1" "{" > "$filename"
+    shift
+    echo "    ""$@" >> "$filename"
+    echo "}" >> "$filename"
+    vi "$filename"
+    . "$filename"
+}

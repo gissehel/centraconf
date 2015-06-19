@@ -1,0 +1,1 @@
+alias addzerode='perl -ape "s/\\n/\\r\\n/g;" -i'

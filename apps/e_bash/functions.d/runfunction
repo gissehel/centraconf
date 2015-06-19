@@ -1,0 +1,3 @@
+function runfunction {
+    . "$E_BASH_DIR"/functions.d/"$1"
+}

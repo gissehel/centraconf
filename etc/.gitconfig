@@ -1,0 +1,24 @@
+[user]
+    email = public-devgit-common@gissehel.org
+    name = gissehel
+
+[alias]
+    l = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    ll = log --stat
+    s = status --branch --short
+    w = whatchanged
+
+[color]
+    ui = always
+    status = auto
+    branch = auto
+    interactive = auto
+    diff = auto
+
+[merge]
+    tool = vimdiff
+
+[push]
+    default = upstream
+
+

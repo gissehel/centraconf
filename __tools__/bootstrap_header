@@ -1,0 +1,27 @@
+#!/bin/sh
+echo "centraconf bootstrap."
+echo "Extracting archive... please wait"
+installpath="$1"
+asuser="$2"
+extra="$3"
+bootstrap_header_size=800
+[ -z "$installpath" ] && installpath=~/etc/centraconf
+[ -z "$asuser" ] && asuser="$(whoami)"
+echo "install into [$installpath] as user [$asuser] (enter => yes)?"; read yesno
+[ \! -z "$yesno" ] && exit 0
+mkdir -p "$installpath"
+dd if=$0 bs=${bootstrap_header_size} skip=1 | (cd "$installpath" ; tar xzv)
+cd "$installpath" && for scriptname in __tools__/bootstrap.d/*.sh ; do
+    echo "execute [${scriptname}] (entrer => yes)?"; read yesno
+    [ -z "$yesno" ] && sh "$scriptname" "$installpath" "$asuser" "$extra"
+done
+echo "Installation in [$installpath] done"
+exit 0
+
+# FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL
+# FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL
+# FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL
+# FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL
+# FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL
+# FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL FILL
+

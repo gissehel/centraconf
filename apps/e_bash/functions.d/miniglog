@@ -1,0 +1,3 @@
+function miniglog {
+    hg glog --template "\t{rev} : {date|isodatesec} [{branch}] by ({author}) : {desc}\n" | less
+}

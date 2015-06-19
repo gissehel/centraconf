@@ -1,0 +1,3 @@
+function fcfiles {
+    cat "$1" | perl -ape 's{(.*?) +<[\+\@]?(.*?)> +(\#\d+) +\d+x \[.*?\] (.*)}{$4 | ($1) /msg $2 xdcc send $3} || s{.*}{}' | sort -u > "$1"-cfiles
+}

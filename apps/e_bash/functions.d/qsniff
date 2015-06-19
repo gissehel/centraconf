@@ -1,0 +1,5 @@
+function qsniff {
+  filename=~/"data/unison/tcpdump/dump-"$(date "+%s")
+  sudo tcpdump -i eth0 -w "$filename"
+  sudo chown gissehel:gissehel "$filename"
+}

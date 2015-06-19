@@ -1,0 +1,1 @@
+alias stripzerode='perl -ape "s/\\r//g;" -i'

@@ -1,0 +1,3 @@
+function mjq {
+    cat | perl -ape 's{ISODate\((".*?")\)}{$1}g' | jq "."
+}

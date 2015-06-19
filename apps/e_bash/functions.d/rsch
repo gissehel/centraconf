@@ -1,0 +1,5 @@
+function rsch {
+    find . | while read file ; do schown "$file" ; done
+    find . -type d | while read file ; do schmodd "$file" ; done
+    find . \! -type d | while read file ; do schmod "$file" ; done
+}

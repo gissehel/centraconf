@@ -1,0 +1,1 @@
+alias runenvvars='. "$E_BASH_DIR"/envvars.sh'

@@ -1,0 +1,3 @@
+function grolor {
+    grep $* --color=always | less -r
+}

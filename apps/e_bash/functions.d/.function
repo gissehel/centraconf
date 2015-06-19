@@ -1,0 +1,3 @@
+function .function {
+    . "$E_BASH_DIR"/functions.d/"$1"
+}

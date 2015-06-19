@@ -1,0 +1,10 @@
+function vifunction {
+    filename="$E_FUNCTION_DIR"/"$1"
+    if [ -e "$filename" ] ;
+    then
+        mkdir -p "$E_BASH_DIR"/__old__
+        cp "$filename" "$E_BASH_DIR"/__old__/function-"$1"-"$(date +%s)"
+        vi "$filename"
+    fi
+    . "$filename"
+}

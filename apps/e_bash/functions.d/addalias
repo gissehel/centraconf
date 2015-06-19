@@ -1,0 +1,9 @@
+function addalias {
+    filename="$E_ALIAS_DIR"/"$1"
+    if [ -e "$filename" ] ;
+    then
+        mv "$filename" "$E_BASH_DIR"/__old__/alias-"$1"-"$(date +%s)"
+    fi
+    echo alias "$1"="'""$2""'" > "$filename"
+    . "$filename"
+}

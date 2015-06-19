@@ -1,0 +1,10 @@
+hardstatus alwayslastline "${SCREEN_LINE}"
+bind h hardstatus ignore
+bind g hardstatus alwayslastline
+vbell on
+term screen
+multiuser on
+bell_msg ""
+#defutf8 on
+shell -bash
+

@@ -1,0 +1,14 @@
+function mkhtmlindex {
+    echo "<!doctype html>" > index.html
+    echo "<html><head></head><body>" >> index.html
+    echo "<ul>" >> index.html
+    for i in *; 
+    do 
+        if [ "$i" != "index.html" ];
+        then
+            echo "<li><a href='$i'>$i</a></li>" >> index.html;
+        fi
+    done
+    echo "</ul>" >> index.html
+    echo "</body></html>" >> index.html
+}

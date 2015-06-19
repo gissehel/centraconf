@@ -1,0 +1,1 @@
+alias gitfulllog='git log --all --color --graph --full-history --decorate=full'

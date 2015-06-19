@@ -1,0 +1,9 @@
+function addenvvar {
+    filename="$E_ENVVAR_DIR"/"$1"
+    if [ -e "$filename" ] ;
+    then
+        mv "$filename" "$E_BASH_DIR"/__old__/envvar-"$1"-"$(date +%s)"
+    fi
+    echo export "$1"='"'"$2"'"' > "$filename"
+    . "$filename"
+}

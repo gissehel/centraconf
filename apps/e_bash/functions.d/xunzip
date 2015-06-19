@@ -1,0 +1,6 @@
+function xunzip {
+    for name in *.zip; 
+    do 
+        unzip "$name" -d "$name".d; 
+    done
+}

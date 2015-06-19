@@ -1,0 +1,3 @@
+function .envvar {
+    . "$E_BASH_DIR"/envvars.d/"$1"
+}

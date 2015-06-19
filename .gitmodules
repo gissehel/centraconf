@@ -1,0 +1,15 @@
+[submodule "etc/.vim/bundle/vim-coffee-script"]
+	path = etc/.vim/bundle/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script
+[submodule "etc/.vim/bundle/vim-jade"]
+	path = etc/.vim/bundle/vim-jade
+	url = https://github.com/digitaltoad/vim-jade
+[submodule "etc/.vim/bundle/vim-lesscss"]
+	path = etc/.vim/bundle/vim-lesscss
+	url = https://github.com/vitalk/vim-lesscss
+[submodule "etc/.vim/bundle/vim-stylus"]
+	path = etc/.vim/bundle/vim-stylus
+	url = https://github.com/wavded/vim-stylus
+[submodule "repos/vim-pathogen"]
+	path = repos/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen
