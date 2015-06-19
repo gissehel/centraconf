@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+for name in "$@"; do
+    if [ -n "$name" ] ; then
+        echo "pulling [$name]"
+        sudo docker pull "$name"
+        docker-tag-date "$name"
+    fi
+done

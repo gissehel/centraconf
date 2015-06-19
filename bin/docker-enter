@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# sudo nsenter --target $(sudo docker inspect --format {{.State.Pid}} "$1") --mount --uts --ipc --net --pid
+name="$1"
+user="$2"
+userstring=""
+[ -z "$2" ] || userstring="-u $user"
+sudo docker exec -ti "${name}" /bin/bash -c "TERM=\"${TERM}\" sudo -i ${userstring} /bin/bash"
+

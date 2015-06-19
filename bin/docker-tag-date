@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+debug=0
+for param in "$@"; do
+    [ "${param}" == "-d" ] && debug=1
+done
+
+function is-debug() { [ ${debug} != "0" ]; }
+
+function get-creation-date() {
+    tag="$1"
+    created_line="$(sudo docker inspect "${tag}" 2>/dev/null | grep '"Created"')" || return
+    date=${created_line#*:}
+    echo "${date:2:4}${date:7:2}${date:10:2}"
+}
+
+function tag-date() {
+    tag="$1"
+    if [[ "${tag}" == *:* ]] ; then
+        name="${tag%:*}"
+        label="${tag#*:}"
+    else
+        name="${tag}"
+        label="latest"
+    fi
+    norm_tag="${name}:${label}"
+    date="$(get-creation-date ${norm_tag})"
+    label_prefix="${label}-"
+    [ "${label}" == "latest" ] && label_prefix=""
+
+    [ -z "$date" ] && echo "Don't know image [${norm_tag}]." && echo "" && return
+    
+    is-debug && echo "normalized tag = ${norm_tag}"
+    is-debug && echo "date = ${date}"
+    is-debug && echo "name = ${name}"
+    is-debug && echo "label = ${label}"
+    is-debug && echo "new label = ${label_prefix}${date}"
+    is-debug && echo "debug = ${debug}"
+    is-debug && echo ""
+
+    is-debug || sudo docker tag -f "${norm_tag}" "${name}:${label_prefix}${date}"
+}
+
+for param in "$@"; do
+    [ "${param}" == "-d" ] || tag-date "${param}"
+done

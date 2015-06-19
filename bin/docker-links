@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+remove-links() {
+  sudo iptables-save -t nat | grep POSTROUTING | grep '172\.17\.' | cut -b4- | while read line ; do 
+    echo "Removing: $line"
+    sudo iptables -t nat -D $line
+  done
+}
+
+get-ip() {
+  host "$1" | cut -d ' ' -f 4 | tail -n 1
+}
+
+get-ip-container() {
+  (sudo docker inspect "$1" 2>/dev/null) | grep "IPAddress" | cut -d '"' -f 4
+}
+
+add-links() {
+  DEFAULT=$(get-ip $1)
+  echo "Default: $DEFAULT ($1)"
+  sudo iptables -t nat -A POSTROUTING -s 172.17.0.0/16 ! -d 172.17.0.0/16 -j SNAT --to-source "$DEFAULT"
+}
+
+add-link() {
+  IPCONT="$(get-ip-container "$1")"
+  IPREDIR="$(get-ip "$2")"
+  if [ -n "$IPCONT" ]; then
+    echo "  $IPCONT -> $IPREDIR ($1 -> $2)"
+    sudo iptables -t nat -A POSTROUTING -s "$IPCONT"/32 ! -d 172.17.0.0/16 -j SNAT --to-source "$IPREDIR"
+  fi
+}
+
+remove-links
+add-link sq-fr dantus.gissehel.com
+add-link sq-pl pl.gissehel.com
+add-link sq-es es.gissehel.com
+add-link sq-uk uk.gissehel.com
+add-link sq-ie ie.gissehel.com
+add-link sq-be be.gissehel.com
+# add-link tdi es.gissehel.com
+add-link plowshare uk.gissehel.com
+add-links dantus.gissehel.com
+
+

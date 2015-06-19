@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+dikki="sudo python ${CENTRACONF}/repos/dikki/dikki.py"
+$dikki images -O digraph "$@" | dot -Tpng > /opt/backstore/web/files/docker.png
+echo "https://files.gissehel.com/docker.png"

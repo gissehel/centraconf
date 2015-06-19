@@ -13,3 +13,6 @@
 [submodule "repos/vim-pathogen"]
 	path = repos/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
+[submodule "repos/dikki"]
+	path = repos/dikki
+	url = https://github.com/gissehel/dikki
