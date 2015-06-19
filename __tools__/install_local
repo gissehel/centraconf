@@ -2,14 +2,17 @@
 asuser="$1"
 extra="$2"
 
-installpath="$(dirname "$0")/.."
-WD="$(pwd)"
-installpath="$(pwd)"
-
 [ -z "$asuser" ] && asuser="$(whoami)"
 
+installpath="$(dirname "$0")/.."
+WD="$(pwd)"
+cd "${installpath}"
+installpath="$(pwd)"
+
+git submodule init
+git submodule update -f
 echo "Installing in [${installpath}] as user [${asuser}]"
-cd "$installpath" && for scriptname in __tools__/bootstrap.d/*.sh ; do
+for scriptname in __tools__/bootstrap.d/*.sh ; do
     echo "execute [${scriptname}]"
     bash "$scriptname" "$installpath" "$asuser" "$extra"
 done
