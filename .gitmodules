@@ -16,3 +16,6 @@
 [submodule "repos/dikki"]
 	path = repos/dikki
 	url = https://github.com/gissehel/dikki
+[submodule "etc/.vim/bundle/vim-pug"]
+	path = etc/.vim/bundle/vim-pug
+	url = https://github.com/digitaltoad/vim-pug
